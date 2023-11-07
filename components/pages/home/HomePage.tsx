@@ -1,5 +1,10 @@
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
+import { CTA } from 'components/shared/container/CTA'
+import { FeatureContainer } from 'components/shared/container/Feature'
+import { Projects } from 'components/shared/container/Projects'
+import { Testimonials } from 'components/shared/container/Testimonials'
 import { Header } from 'components/shared/Header'
+import HeroCenter from 'components/shared/HeroCenter'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import type { HomePagePayload } from 'types'
@@ -14,10 +19,15 @@ export function HomePage({ data }: HomePageProps) {
 
   return (
     <div className="space-y-20">
+      <HeroCenter />
+      <FeatureContainer />
+      <Projects />
+      <Testimonials />
+      <CTA />
       {/* Header */}
-      {title && <Header centered title={title} description={overview} />}
+      {/* {title && <Header centered title={title} description={overview} />} */}
       {/* Showcase projects */}
-      {showcaseProjects && showcaseProjects.length > 0 && (
+      {/* {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project._type, project.slug)
@@ -31,7 +41,7 @@ export function HomePage({ data }: HomePageProps) {
             )
           })}
         </div>
-      )}
+      )} */}
     </div>
   )
 }

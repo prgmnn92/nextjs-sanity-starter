@@ -27,6 +27,7 @@ export const pagesBySlugQuery = groq`
     overview,
     title,
     "slug": slug.current,
+    content,
   }
 `
 
@@ -62,5 +63,6 @@ export const settingsQuery = groq`
       title
     },
     ogImage,
+    headCode,
   }
 `

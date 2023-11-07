@@ -42,6 +42,7 @@ export interface PagePayload {
   overview?: PortableTextBlock[]
   title?: string
   slug?: string
+  content?: Array<any>
 }
 
 export interface ProjectPayload {
@@ -60,6 +61,7 @@ export interface ProjectPayload {
 }
 
 export interface SettingsPayload {
+  headCode: any
   footer?: PortableTextBlock[]
   menuItems?: MenuItem[]
   ogImage?: Image

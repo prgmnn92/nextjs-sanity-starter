@@ -33,34 +33,6 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'footer',
-      description:
-        'This is a block of text that will be displayed at the bottom of the page.',
-      title: 'Footer Info',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          marks: {
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
-                  },
-                ],
-              },
-            ],
-          },
-        }),
-      ],
-    }),
-    defineField({
       name: 'ogImage',
       title: 'Open Graph Image',
       type: 'image',
@@ -68,6 +40,18 @@ export default defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: 'brandColorPrimary',
+      title: 'Brand Color Primary',
+      type: 'color',
+      description: 'This is the main color that gets applied to your components',
+    }),
+    defineField({
+      name: 'brandColorSecondary',
+      title: 'Brand Color Secondary',
+      type: 'color',
+      description: 'This is the secondary color that gets applied to your components',
     }),
   ],
   preview: {

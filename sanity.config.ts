@@ -15,11 +15,16 @@ import Iframe, {
 import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url'
 import page from 'schemas/documents/page'
 import project from 'schemas/documents/project'
+// import custom object here
 import duration from 'schemas/objects/duration'
+import featureSection2 from 'schemas/objects/featureSection2'
+import featureSectionImageText from 'schemas/objects/featureSectionImageText'
+import { imagePosition } from 'schemas/objects/ImagePosition'
 import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
+import { colorInput } from '@sanity/color-input'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -67,6 +72,9 @@ export default defineConfig({
       // Objects
       milestone,
       timeline,
+      featureSection2,
+      featureSectionImageText,
+      imagePosition,
     ],
   },
   plugins: [
@@ -90,6 +98,7 @@ export default defineConfig({
         return null
       },
     }),
+    colorInput(),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
     singletonPlugin([home.name, settings.name]),
     // Add the "Open preview" action

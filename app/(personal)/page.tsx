@@ -14,6 +14,8 @@ export const runtime = 'edge'
 export async function generateMetadata(): Promise<Metadata> {
   const [settings, page] = await Promise.all([getSettings(), getHomePage()])
 
+  console.log(settings)
+
   return defineMetadata({
     description: page?.overview ? toPlainText(page.overview) : '',
     image: settings?.ogImage,

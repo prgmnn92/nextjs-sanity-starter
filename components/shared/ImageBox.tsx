@@ -8,6 +8,7 @@ interface ImageBoxProps {
   height?: number
   size?: string
   classesWrapper?: string
+  classesImage?: string
 }
 
 export default function ImageBox({
@@ -17,9 +18,22 @@ export default function ImageBox({
   height = 2000,
   size = '100vw',
   classesWrapper,
+  classesImage,
 }: ImageBoxProps) {
   const imageUrl =
     image && urlForImage(image)?.height(height).width(width).fit('crop').url()
+  if (classesImage) {
+    return (
+      <Image
+        className={classesImage}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes={size}
+        src={imageUrl || ''}
+      />
+    )
+  }
 
   return (
     <div
@@ -27,7 +41,7 @@ export default function ImageBox({
     >
       {imageUrl && (
         <Image
-          className="absolute h-full w-full"
+          className={'absolute h-full w-full'}
           alt={alt}
           width={width}
           height={height}

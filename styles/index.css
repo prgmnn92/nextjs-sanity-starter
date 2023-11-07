@@ -2,6 +2,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background-color: #ecebeb;
 }
 
 p:not(:last-child) {

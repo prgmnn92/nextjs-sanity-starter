@@ -5,7 +5,7 @@ export default defineType({
   type: 'document',
   name: 'page',
   title: 'Page',
-  icon: DocumentIcon,
+  icon: DocumentIcon, // MY CUSTOM IMAGE HERE
   fields: [
     defineField({
       type: 'string',
@@ -21,6 +21,25 @@ export default defineType({
         source: 'title',
       },
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'content',
+      type: 'array',
+      title: 'Page builder',
+      of: [
+        defineArrayMember({
+          name: 'FeatureSection2', // das wird als type angezeigt
+          type: 'featureSection2',
+        }),
+        defineArrayMember({
+          name: 'FeatureSectionImageText', // das wird als type angezeigt
+          type: 'featureSectionImageText',
+        }),
+        // defineArrayMember({
+        //   name: 'Feature Section 3',
+        //   type: 'featureSection3',
+        // }),
+      ],
     }),
     defineField({
       name: 'overview',
@@ -51,6 +70,7 @@ export default defineType({
       ],
       validation: (rule) => rule.max(155).required(),
     }),
+
     defineField({
       type: 'array',
       name: 'body',
